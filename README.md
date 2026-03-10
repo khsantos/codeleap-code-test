@@ -1,73 +1,90 @@
-# React + TypeScript + Vite
+# CodeLeap Network – React Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a solution for the **CodeLeap Frontend Challenge**.
+It is a simple social feed where users can create, edit, and delete posts.
 
-Currently, two official plugins are available:
+The application interacts with the CodeLeap public API and displays posts in a timeline format.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+* Create a new post
+* View all posts from the API
+* Edit your own posts
+* Delete your own posts with confirmation modal
+* Posts sorted by most recent
+* Relative time display (e.g., "5 minutes ago")
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+* **React**
+* **TypeScript**
+* **Tailwind CSS**
+* **React Hooks**
+* **Fetch API**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src
+ ├ components
+ │   ├ PostCard
+ │   ├ DeleteModal
+ │   └ EditModal
+ │
+ ├ hooks
+ │   └ usePosts
+ │
+ ├ services
+ │   └ api
+ │
+ ├ context
+ │   └ UserContext
+ │
+ └ pages
+     └ MainScreen
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## API
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This project uses the official CodeLeap API:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+https://dev.codeleap.co.uk/careers/
+```
+
+Endpoints used:
+
+* `GET /careers/` – fetch posts
+* `POST /careers/` – create post
+* `PATCH /careers/{id}/` – update post
+* `DELETE /careers/{id}/` – delete post
+
+## Running the Project
+
+1. Clone the repository
+
+```
+git clone https://github.com/your-username/your-repository
+```
+
+2. Install dependencies
+
+```
+npm install
+```
+
+3. Start the development server
+
+```
+npm run dev
+```
+
+The application will run at:
+
+```
+http://localhost:5173
+```
+
+## Author
+
+Developed by **Kauã Heidemann Santos**.
